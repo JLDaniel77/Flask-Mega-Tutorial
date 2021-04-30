@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField, PasswordField, BooleanField, 
+from wtforms import (StringField, PasswordField, BooleanField,
                      SubmitField, TextAreaField)
 from wtforms.validators import (InputRequired, ValidationError,
                                 Email, EqualTo, Length)
@@ -48,3 +48,9 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError('Username already exists')
+
+
+class PostForm(FlaskForm):
+    post = TestAreaField('Say something', validators=[
+        InputRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Submit')
