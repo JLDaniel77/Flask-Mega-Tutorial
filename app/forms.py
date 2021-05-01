@@ -50,7 +50,11 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Username already exists')
 
 
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
+
+
 class PostForm(FlaskForm):
-    post = TestAreaField('Say something', validators=[
+    post = TextAreaField('Say something', validators=[
         InputRequired(), Length(min=1, max=140)])
     submit = SubmitField('Submit')

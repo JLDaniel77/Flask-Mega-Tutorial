@@ -14,6 +14,7 @@ class Config:
     MAIL_USERNAME = environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = environ.get('MAIL_PASSWORD')
     ADMINS = [environ.get('ADMIN_EMAIL')]
+    POSTS_PER_PAGE = 3
 
 
 class ProdConfig(Config):
