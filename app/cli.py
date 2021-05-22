@@ -34,4 +34,4 @@ def init(lang):
         raise RuntimeError('extract command failed')
     if os.system('pybabel init -i messages.pot -d app/translations -l' + lang):
         raise RuntimeError('init command failed')
-    # os.remove('messages.pot')
+    os.remove('messages.pot')
